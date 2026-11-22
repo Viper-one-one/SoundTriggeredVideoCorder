@@ -75,3 +75,7 @@ Or open the repository in Android Studio.
 - The level meter and the video's audio track both use the mic at the same time. This works on most
   devices running Android 10+. If a device silences the meter during recording, clips end after the
   minimum clip length / post-trigger timeout. Turning off "Record audio in video" avoids the conflict entirely.
+
+## License
+
+This project is licensed under the terms of the GNU General Public License v3.0 (GNU GPLv3). See the [LICENSE](LICENSE) file for the full license text.
