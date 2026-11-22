@@ -15,9 +15,24 @@ android {
         versionName = "1.0"
     }
 
+    signingConfigs {
+        create("release") {
+            val keystoreFile = file("release.keystore")
+            if (keystoreFile.exists()) {
+                storeFile = keystoreFile
+                storePassword = System.getenv("KEYSTORE_PASSWORD") ?: "soundtriggercam"
+                keyAlias = System.getenv("KEY_ALIAS") ?: "soundtriggercam"
+                keyPassword = System.getenv("KEY_PASSWORD") ?: "soundtriggercam"
+            } else {
+                initWith(getByName("debug"))
+            }
+        }
+    }
+
     buildTypes {
         release {
             isMinifyEnabled = true
+            signingConfig = signingConfigs.getByName("release")
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
     }

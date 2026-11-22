@@ -3,6 +3,22 @@
 An Android app that starts recording video automatically when the microphone level goes
 above a threshold you choose. It also has a **Sound Level Test** screen for tuning that threshold.
 
+## Download & Install
+
+You can download the pre-built, signed release APK directly from this repository:
+
+- **[Download SoundTriggerCam-v1.0.apk](release/SoundTriggerCam-v1.0.apk)** (v1.0 Release)
+
+### Installation instructions
+
+- **Direct sideload**: Transfer or download `SoundTriggerCam-v1.0.apk` onto your Android device (Android 8.0+ / API 26+). When prompted, tap the notification or file in your file manager and allow "Install unknown apps" for that source.
+- **Via ADB**: Connect your phone with USB debugging enabled and run:
+  ```powershell
+  adb install release/SoundTriggerCam-v1.0.apk
+  ```
+
+---
+
 ## Features
 
 - **Monitor tab**: camera preview, live mic meter, threshold control, and an **Arm** button.
@@ -25,14 +41,20 @@ is usually −70 to −50 dBFS. Speech close to the phone is roughly −35 to �
 
 ## Build & run
 
-Requirements: JDK 17 and the Android SDK (platform 34).
+Requirements: JDK 17 or 21 and the Android SDK (platform 34).
 
 ```powershell
+# Build debug APK
 .\gradlew.bat assembleDebug
-.\gradlew.bat installDebug   # with a device connected via adb
+
+# Build optimized and signed release APK
+.\gradlew.bat assembleRelease
+
+# Install directly to a connected device via adb
+.\gradlew.bat installDebug
 ```
 
-Or open the folder in Android Studio.
+Or open the repository in Android Studio.
 
 ## Implementation notes
 
